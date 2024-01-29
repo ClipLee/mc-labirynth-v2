@@ -233,11 +233,13 @@ div.layer div {
 }
 
 /*
-   *  Player default colors
+   *  Player default look
    */
 .player {
-    background-color: #90ee90;
-    border: 1px solid #008000;
+    background-image: url('assets/idle-0001.png');
+    background-size: cover;
+    /* background-color: #90ee90; */
+    /* border: 1px solid #008000; */
     transition: left 0.2s ease, top 0.2s ease;
 }
 
