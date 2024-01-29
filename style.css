@@ -218,7 +218,15 @@ div.layer div {
 /*
    * player and goal are slightly smaller than tiles
    */
-.player,
+.player{
+    border-radius: 0; /* Zmiana kształtu na kwadrat */
+    background-image: url('assets/idle-0001.png');
+    background-size: cover;
+    transform: scale(0.85);
+    transition: left 0.2s ease, top 0.2s ease;
+}
+
+
 .goal {
     transform-origin: center;
     transform: scale(0.85);
@@ -228,8 +236,8 @@ div.layer div {
    * Goal colors
    */
 .goal {
-    background-color: #FFD700;
-    border: 1px solid #98720b;
+    background-color: #88ff00;
+    border: 1px solid #384107;
 }
 
 /*

@@ -5,7 +5,7 @@ let app = {};
 
     /*
      *  Build an array of levels.
-     *  This will scale better if it is stored in a separate JSON File.
+     TODO: Move to separate JSON File.
      */
     let levels = [];
     levels[0] = {
@@ -79,13 +79,13 @@ let app = {};
             [1, 0, 0, 1, 0, 1, 0, 1, 0, 1],
             [1, 1, 0, 0, 1, 0, 0, 1, 0, 1]
         ],
-        theme: 'desert',
+        theme: 'grassland',
         player: {
-            x: 0,
+            x: 3,
             y: 9
         },
         goal: {
-            x: 9,
+            x: 8,
             y: 0
         }
     };
@@ -104,7 +104,7 @@ let app = {};
             [1, 0, 0, 1, 0, 1, 0, 1, 0, 1],
             [1, 1, 0, 0, 1, 0, 0, 1, 0, 1]
         ],
-        theme: 'snow',
+        theme: 'default',
         player: {
             x: 9,
             y: 9
@@ -219,7 +219,11 @@ let app = {};
         sprite.id = type;
 
         // set the border radius of the sprite.
-        sprite.style.borderRadius = this.tileDim + 'px';
+        // set the border radius of the sprite only if it's not the player
+        if (type !== 'player') {
+            sprite.style.borderRadius = this.tileDim + 'px';
+        }
+
 
         // get half the difference between tile and sprite.
 
@@ -228,7 +232,28 @@ let app = {};
 
         layer.appendChild(sprite);
 
+        // Start idle animation after placing the sprite
+        this.idleSprite(type);
+
         return sprite;
+    }
+
+    /*
+    * Triggers player to move on idle
+    */
+    Game.prototype.idleSprite = function (type) {
+        let idleFrameIndex = 0;
+        const idleFrames = type === 'goal'
+            ? ['url(assets/goal-idle-0001.png)', 'url(assets/goal-idle-0002.png)']
+            : ['url(assets/idle-0001.png)', 'url(assets/idle-0002.png)'];
+
+        function animateIdle() {
+            const sprite = document.getElementById(type);
+            sprite.style.backgroundImage = idleFrames[idleFrameIndex];
+            idleFrameIndex = (idleFrameIndex + 1) % idleFrames.length;
+        }
+
+        this[type].idleInterval = setInterval(animateIdle.bind(this), 500); // Zmienia obrazek co 500ms
     }
 
     /*
