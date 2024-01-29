@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container-1" class="game-container">
+        <div id="level-info">Level: 1</div>
+        <div id="map-and-controls">
+            <div id="game-map-1" class="game-map">
+                <div id="tiles" class="layer"></div>
+                <div id="sprites" class="layer"></div>
+                <div id="success-msg">Brawo! Kliknij labirynt aby wygenerować nowy</div>
+            </div>
+
+            <!-- controls-->
+            <div id="controls">
+                <button id="up"></button>
+                <div id="horiz">
+                    <button id="left"></button>
+                    <button id="right"></button>
+                </div>
+                <button id="down"></button>
+            </div>
+        </div>
+        <p id="text-1" class="text">Użyj strzałek lub przycisków, aby kontrolować postać</p>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
