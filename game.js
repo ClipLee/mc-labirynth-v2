@@ -111,7 +111,7 @@ let app = {};
         },
         goal: {
             x: 0,
-            y: 0
+            y: 1
         }
     };
 
@@ -388,6 +388,8 @@ let app = {};
                 this.moveDown();
                 break;
         }
+        // Increase moves counter
+        countMove();
     }
     /*
      * Check on whether goal has been reached.
@@ -395,10 +397,14 @@ let app = {};
     Game.prototype.checkGoal = function () {
         let body = document.querySelector('body');
 
-        if (this.player.y == this.goal.y &&
-            this.player.x == this.goal.x) {
-
+        if (this.player.y == this.goal.y && this.player.x == this.goal.x) {
             body.className = 'success';
+
+            // Dodaj wynik do tablicy wyników
+            addHighScore(this.level_idx, moves);
+
+            // Wyświetl tablicę wyników
+            displayHighScores(this.level_idx);
         }
         else {
             body.className = '';
@@ -474,6 +480,25 @@ let app = {};
             // check the goal to reset the message.
             obj.checkGoal();
 
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.code === 'Space') {
+                obj.changeLevel();
+                let layers = obj.el.querySelectorAll('.layer');
+
+                // clear tiles and sprites from layers
+                for (layer of layers) {
+                    layer.innerHTML = '';
+                }
+
+                // place the new level.
+                obj.placeLevel();
+
+                // check the goal to reset the message.
+                obj.checkGoal();
+
+            }
         });
     };
 
@@ -589,6 +614,61 @@ let app = {};
         myGame.addListeners();
 
     }
+
+    /*
+     *  High-score functionality
+     */
+    // Variable initialization
+    var highScores = JSON.parse(localStorage.getItem('highScores')) || {};
+    var moves = 0;
+
+    // Function to count moves
+    function countMove() {
+        moves++;
+    }
+
+    // Adding new high score
+    function addHighScore(level, moves) {
+        // Jeśli nie ma jeszcze wyników dla tego poziomu, utwórz nową tablicę
+        if (!highScores[level]) {
+            highScores[level] = [];
+        }
+
+        // Dodaj nowy wynik na początek tablicy
+        highScores[level].unshift({ moves: moves });
+
+        // Jeśli tablica ma więcej niż 5 wyników, usuń najstarszy
+        if (highScores[level].length > 5) {
+            highScores[level].pop();
+        }
+
+        // Zapisz wyniki do localStorage
+        localStorage.setItem('highScores', JSON.stringify(highScores));
+    }
+
+    // Funkcja do wyświetlania wyników
+    function displayHighScores(level) {
+        // Jeśli nie ma wyników dla tego poziomu, nie rób nic
+        if (!highScores[level]) {
+            return;
+        }
+
+        // Sortuj wyniki od najmniejszej do największej liczby ruchów
+        highScores[level].sort((a, b) => a.moves - b.moves);
+
+        // Pobierz kontener dla wyników
+        var highScoresContainer = document.getElementById('high-scores');
+
+        // Wyczyść kontener
+        highScoresContainer.innerHTML = 'Wyniki:<br>';
+
+        // Wyświetl tylko pięć najlepszych wyników
+        for (var i = 0; i < Math.min(5, highScores[level].length); i++) {
+            highScoresContainer.innerHTML += `Gra ${i + 1}: Level ${level}, Moves ${highScores[level][i].moves}<br>`;
+        }
+    }
+
+
 })(app);
 
 /*
