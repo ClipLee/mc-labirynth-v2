@@ -1,0 +1,21 @@
+# Labirynt 2
+
+Labirynt 2 to prosta gra przeglądarkowa, w której gracz musi poruszać postacią przez labirynt, aby dotrzeć do celu. Gra jest napisana w czystym JavaScript, bez użycia żadnych bibliotek czy frameworków.
+
+## Struktura projektu
+
+- [``game.js``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2Fgame.js%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\game.js") - Główny plik JavaScript, który zawiera logikę gry. Definiuje klasę `Game`, która zawiera metody do poruszania postacią, zmiany poziomów, wykrywania kolizji i innych funkcji gry.
+- [``maze_algorithm.js``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2Fmaze_algorithm.js%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\maze_algorithm.js") - Plik JavaScript, który zawiera algorytm generujący labirynt.
+- [``style.css``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2Fstyle.css%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\style.css") - Plik CSS, który zawiera style dla gry. Zawiera style dla różnych tematów gry, animacji gracza, przycisków sterowania i innych elementów interfejsu użytkownika.
+- [``index.html``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2Findex.html%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\index.html") - Główny plik HTML, który zawiera strukturę strony gry. Zawiera kontenery dla mapy gry, przycisków sterowania, wiadomości o sukcesie i innych elementów interfejsu użytkownika.
+- [``README.md``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2FREADME.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\README.md") - Ten plik, który zawiera opis projektu.
+- [``.vscode/settings.json``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2F.vscode%2Fsettings.json%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\.vscode\settings.json") - Plik konfiguracyjny dla Visual Studio Code.
+- [``assets/``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2Fassets%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\assets\") - Katalog zawierający zasoby gry, takie jak obrazy.
+
+## Jak grać
+
+Po uruchomieniu gry, gracz może poruszać postacią za pomocą strzałek na klawiaturze lub przycisków sterowania na ekranie. Celem jest dotarcie do zielonego pola, które reprezentuje cel. Po dotarciu do celu, gracz może kliknąć na mapę, aby wygenerować nowy poziom.
+
+## Jak uruchomić
+
+Aby uruchomić grę, otwórz plik [``index.html``](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fklips%2FDocuments%2FPJATK%2FSubjects%2FTIN%2Fmc-labirynth-v2%2Findex.html%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\klips\Documents\PJATK\Subjects\TIN\mc-labirynth-v2\index.html") w przeglądarce.
